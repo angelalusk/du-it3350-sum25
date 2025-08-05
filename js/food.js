@@ -1,12 +1,11 @@
-console.log("✅ Connected to food.js!");
+console.log("✅ We are connected to food.js!");
 
 const appId = "a4d8d4a4"; // Replace with your Nutritionix App ID
 const appKey = "b05d803a2597212e9a749bb57c321855"; // Replace with your Nutritionix App Key
 
 function searchFood() {
   const food = document.getElementById("foodInput").value;
-  console.log("🔍 Searching for food:", food);
-
+  console.log("🔍 Searching for food(s):", food);
   fetch("https://trackapi.nutritionix.com/v2/natural/nutrients", {
     method: "POST",
     headers: {
@@ -17,14 +16,14 @@ function searchFood() {
     body: JSON.stringify({ query: food })
   })
   .then(res => {
-    console.log("📡 Response received:", res);
+    console.log("Food response is received:", res);
     return res.json();
   })
   .then(data => {
-    console.log("📦 Parsed data:", data);
+    console.log("Here is the parsed data:", data);
 
     const item = data.foods[0];
-    console.log("🍽️ First food item:", item);
+    console.log("Here is the food item returned:", item);
 
     const description = `
       <div class="card">
@@ -38,7 +37,7 @@ function searchFood() {
     document.getElementById("results").innerHTML = description;
   })
   .catch(err => {
-    console.error("❌ Error occurred:", err);
+    console.error("We have an error.", err);
     document.getElementById("results").innerHTML = "Oops! Something went wrong.";
   });
 }
