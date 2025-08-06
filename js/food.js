@@ -5,7 +5,23 @@ const appKey = "b05d803a2597212e9a749bb57c321855"; // Replace with your Nutritio
 
 function searchFood() {
   const food = document.getElementById("foodInput").value;
-  console.log("🔍 Searching for food(s):", food);
+  console.log("Searching for food(s):", food);
+
+  // Extract quantity from the beginning of the input
+  const quantityMatch = food.match(/^\s*(\d+)/);
+  debugger; // Pause here to inspect quantity
+
+  if (quantityMatch) {
+    const quantity = parseInt(quantityMatch[1]);
+    console.log("Quantity entered:", quantity);
+
+    if (quantity > 10) {
+      alert("Please enter a quantity of 10 or less.");
+      return;
+    }
+  }
+
+  // Continue with fetch if quantity is valid
   fetch("https://trackapi.nutritionix.com/v2/natural/nutrients", {
     method: "POST",
     headers: {
