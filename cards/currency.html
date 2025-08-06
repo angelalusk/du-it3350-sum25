@@ -12,12 +12,20 @@
 				for (const [key, value] of Object.entries(response.usd)) {
 					conversionMap[key] = value;
 				}
-			});
+			});			
+function doComputation() {
+  const inputValue = $('#usdValue').val();
 
-			function doComputation() {
-				var result = $('#usdValue').val() * conversionMap[$('#currency').val()];
-				$('#endValue').val(result.toFixed(2));
-			}
+  // Check for commas
+  if (inputValue.includes(',')) {
+    alert("❌ Please do not enter commas in the input field.");
+    $('#usdValue').val(''); // Optional: clear the input
+    return;
+  }
+const result = inputValue * conversionMap[$('#currency').val()];
+  $('#endValue').val(result.toFixed(2));
+}
+
 		</script>
 	</HEAD>
 	<BODY>
