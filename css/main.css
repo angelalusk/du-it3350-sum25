@@ -1,18 +1,20 @@
 .cardContainer {
+	height: 100%;
+	width: 100%;
 	display: flex;
-	flex: 1;
-	flex-wrap: wrap;
+	flex-direction: column;
+}
+html, body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	width: 100%;
 }
 
 iframe.card {
-	border-radius: 15px;
-	border-width: 2;
-	border-color: black;
-	border-style: solid;
-	width: 200px;
-	height: 200px;
-  	display: flex;
-  	justify-content: center;
-  	align-items: center;
-  	margin: 20px;
+	width: 100vw;
+	height: 100vh;
+	border: none;
+  	margin: 0px;
+	border-radius: 0;
 }
