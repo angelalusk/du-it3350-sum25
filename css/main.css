@@ -12,8 +12,8 @@ html, body {
 }
 
 iframe.card {
-	width: 100vw;
-	height: 100vh;
+	width: 100%;
+	height: 100%;
 	border: none;
   	margin: 0px;
 	border-radius: 0;
